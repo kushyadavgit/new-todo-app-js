@@ -60,7 +60,7 @@ body {
 .container1 {
   display: flex;
   position: relative;
-  top: 50px;
+  top: 100px;
   /* left: 110px; */
   /* right: 110px; */
   margin-left: 110px;
@@ -104,7 +104,7 @@ body {
   background-color: gray;
   font-size: 1.2rem;
   height: 180px;
-  width: 350px;
+  width: 300px;
   border-radius: 6px;
   display: flex;
   flex-direction: column;
@@ -256,8 +256,8 @@ li {
   } */
   .buttonPosition {
     position: absolute;
-    right: 15rem;
-    top: 10rem;
+    right: 11rem;
+    top: 12rem;
   }
   .add1 {
     font-size: 1.5em;
@@ -269,7 +269,32 @@ li {
   .back {
     display: none;
     position: absolute;
-    top: 7rem;
+    top: 3rem;
     left: 4rem;
+  }
+  .right {
+    top: -138px;
+    left: 365px;
+    position: absolute;
+  }
+  .card {
+    top: 160px;
+    width: 240px;
+    margin: 20px;
+    height: 300px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    transition: 1s;
+  }
+  .cardHeading {
+    right: 0px;
+    top: 133px;
+    position: absolute;
+    color: white;
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
   }
 }

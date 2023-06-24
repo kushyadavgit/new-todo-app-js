@@ -1,200 +1,300 @@
-const addbtn1 = document.querySelector(".button1");
-const addbtn2 = document.querySelector(".add1");
-const flexcontainer = document.querySelector(".container");
-const mainBody = document.querySelector("body");
-
-const displayJustCard = document.querySelector(".displayJustCard");
-
-let newList = document.querySelector(".addlist");
-
-// created an array
-data = [];
-let cardId;
-
-// to make 1st popup visible
-function addNewItem() {
-  let newList = document.querySelector(".addlist");
-  newList.style.display = "block";
+body {
+  background-color: black;
+  overflow-x: hidden;
 }
 
-// to close the first popup
-function closeIt() {
-  let newList = document.querySelector(".addlist");
-  newList.style.display = "none";
+.flex1 {
+  display: flex;
+  justify-content: space-between;
 }
 
-// to add flex card
-function addFlex() {
-  newList.style.display = "none";
-  const flexHead = document.getElementById("myInput").value;
+.white {
+  color: white;
+}
 
-  const item = {
-    id: new Date().getTime().toString(),
-    title: flexHead,
-    content: [],
-  };
+.head1 {
+  padding-left: 110px;
+  padding-top: 60px;
+  display: block;
+  font-family: "Roboto", sans-serif;
+  font-size: 2em;
+}
 
-  if (flexHead) {
-    data.push(item);
-    addCard();
-  } else {
-    alert("Enter the title");
+.tasks {
+  font-weight: 900;
+}
+.white1 {
+  color: #ffffffb8;
+}
+
+.right {
+  padding-right: 160px;
+  padding-top: 60px;
+}
+
+.button1 {
+  border-radius: 50%;
+  background-color: #2196f3d4;
+  border: none;
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.add1 {
+  font-size: 1.5em;
+  font-family: "Roboto", sans-serif;
+  position: absolute;
+  right: 7rem;
+  top: 5rem;
+}
+
+.container {
+  position: relative;
+  top: 50px;
+  left: 110px;
+  font-size: 1.5em;
+  font-family: "Roboto", sans-serif;
+}
+
+.container1 {
+  display: flex;
+  position: relative;
+  top: 100px;
+  /* left: 110px; */
+  /* right: 110px; */
+  margin-left: 110px;
+  margin-right: 110px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 240px;
+  margin: 20px;
+  height: 300px;
+  background-color: aliceblue;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  transition: 1s;
+}
+.card:hover {
+  transform: translateY(10px);
+}
+.ftext1 {
+  padding-top: 20px;
+  color: red;
+  overflow: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.addlist {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  display: none;
+}
+.popup1 {
+  background-color: gray;
+  font-size: 1.2rem;
+  height: 180px;
+  width: 300px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Roboto";
+  z-index: 2;
+  box-shadow: 0px 0px 20px 1000px #212121db;
+}
+
+.text1 {
+  color: red;
+  text-align: center;
+  padding-top: 0.8rem;
+}
+
+.ppt {
+  background-color: red;
+  color: wheat;
+  border-radius: 10px;
+  height: 2rem;
+  width: 3.5rem;
+  border: none;
+}
+
+.input1 {
+  text-align: center;
+  width: 250px;
+  height: 1.5rem;
+  border: 1px solid black;
+}
+
+.bflex {
+  display: flex;
+  justify-content: space-around;
+  width: 180px;
+}
+
+.delb {
+  position: relative; /* updated */
+  bottom: 5px;
+  /* right: 70px; */
+  font-size: 20px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  border: 1px solid red;
+}
+
+.plusbutn {
+  position: relative; /* updated */
+  bottom: 5px;
+  /* right: 20px; */
+  font-size: 20px;
+  background-color: blue;
+  color: white;
+  border-radius: 50%;
+  border: 1px solid blue;
+}
+
+.addlist2 {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.spaceItem {
+  color: black;
+  padding: 5px;
+}
+
+.task1 {
+  /* padding: 10px; */
+  position: relative; /* updated */
+  height: 200px;
+  display: flex;
+  overflow: auto;
+  width: 240px;
+}
+
+.btnspace {
+  height: 30px; /* updated */
+}
+
+ul {
+  color: black;
+  list-style-type: none;
+  text-align: start;
+}
+
+.checked {
+  text-decoration: line-through;
+}
+
+.vanish2 {
+  display: none;
+}
+
+.arr {
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+}
+
+.cardHeading {
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.buttonPosition {
+  position: absolute;
+  right: 14rem;
+  top: 5rem;
+}
+
+.displayJustCard {
+  margin: auto;
+  position: relative;
+}
+
+.back {
+  display: none;
+  position: absolute;
+  top: 5rem;
+  left: 8rem;
+}
+
+.addlist3 {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 999;
+}
+
+li {
+  padding-bottom: 5px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 600px) {
+  /* .head1 {
+    position: absolute;
+    padding-top: 2rem;
+  } */
+  .buttonPosition {
+    position: absolute;
+    right: 11rem;
+    top: 12rem;
   }
-
-  document.getElementById("myInput").value = "";
-
-  const cardHeading = document.querySelector(".cardHeading");
-  cardHeading.innerHTML = "";
-
-  const navBar = document.querySelector(".head1");
-  navBar.style.display = "block";
-
-  const backButton = document.querySelector(".back");
-  backButton.style.display = "none";
-}
-
-// to delete the flex card
-function deleteIt(id) {
-  const cardId = `${id}`;
-  const card = document.getElementById(cardId);
-  card.parentNode.removeChild(card);
-  data = data.filter((item) => item.id !== id);
-}
-
-// made a second popup
-function addCardList(id) {
-  let newText = document.querySelector(".addlist2");
-  newText.style.display = "block";
-  cardId = id;
-}
-
-// To close the second popup
-function closeText() {
-  let newList = document.querySelector(".addlist2");
-  newList.style.display = "none";
-}
-
-function renderContents() {
-  for (let i = 0; i < data.length; i++) {
-    let ulelement = document.getElementById(`content_list_${data[i].id}`);
-    let child = "";
-    for (let j = 0; j < data[i].content.length; j++) {
-      let content = data[i].content[j];
-      child += `<li class = "content ${
-        content.done ? "checked" : ""
-      }" id="content_${content.id}" onclick ="doneTask(${content.id}, ${
-        data[i].id
-      })">${content.contentText}</li>`;
-      console.log(data[i]);
-    }
-    ulelement.innerHTML = child;
-    console.log(data);
+  .add1 {
+    font-size: 1.5em;
+    font-family: "Roboto", sans-serif;
+    position: absolute;
+    right: 7rem;
+    top: 10rem;
   }
-}
-
-// adding viva list
-function addCard() {
-  const cardcontainer = document.querySelector(".container1");
-  let child = "";
-  for (let i = 0; i < data.length; i++) {
-    //   console.log("data[i]:", data[i]);
-    child += `<div id="${data[i].id}" class="card">
-      <div value="${data[i].title}" onclick ="displayMyCard(${data[i].id}, this.getAttribute('value'))" class="ftext1">${data[i].title}</div>
-      <hr>
-      <div class="task1">
-          <ul id="content_list_${data[i].id}">
-          </ul>
-      </div>    
-          <div class = "btnspace">
-          <button value = ${data[i].id} onclick ="deleteIt(this.value)" class = "delb"><i class="fa fa-trash" aria-hidden="true"></i></button>
-          <button value = ${data[i].id} onclick ="addCardList(this.value)"  class = "plusbutn"><i class="fa fa-plus" aria-hidden="true"></i></button>
-          </div>
-          </div>`;
+  .back {
+    display: none;
+    position: absolute;
+    top: 3rem;
+    left: 4rem;
   }
-  cardcontainer.innerHTML = child;
-  renderContents();
-  console.log(data);
-}
-
-function addContenttext() {
-  const contentListId = `content_list_${cardId}`;
-  // console.log(cardId);
-  const Ul = document.getElementById(contentListId);
-  const contentText = document.getElementById("myInput1").value;
-  if (!contentText) {
-    alert("Please add task name");
-  } else {
-    document.getElementById("myInput1").value = "";
-    const liNode = document.createElement("li");
-
-    liNode.innerHTML = contentText;
-    liNode.className = "content";
-
-    Ul.appendChild(liNode);
-    closeText();
-    for (let i = 0; i < data.length; i++) {
-      if (data[i].id == cardId) {
-        let content = {
-          id: new Date().getTime().toString(),
-          contentText: contentText,
-          done: false,
-        };
-        data[i].content.push(content);
-        // console.log(data[i].content);
-      }
-    }
-    renderContents();
+  .right {
+    top: -138px;
+    left: 365px;
+    position: absolute;
   }
-}
-
-function doneTask(taskId, cardId) {
-  const contentId = `content_${taskId}`;
-  const liElement = document.getElementById(contentId);
-  liElement.classList.toggle("checked");
-
-  for (let i = 0; i < data.length; i++) {
-    if (data[i].id == cardId) {
-      for (let j = 0; j < data[i].content.length; j++) {
-        const content = data[i].content[j];
-        if (content.id == taskId) {
-          data[i].content[j].done = !data[i].content[j].done;
-          // data[i].content[j].done = true;
-        }
-      }
-    }
+  .card {
+    top: 160px;
+    width: 240px;
+    margin: 20px;
+    height: 300px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    transition: 1s;
   }
-}
-
-function displayMyCard(id, value) {
-  addbtn1.style.display = "block";
-
-  const cardHeading = document.querySelector(".cardHeading");
-  cardHeading.innerHTML = value;
-
-  const cards = document.querySelectorAll(".card");
-  cards.forEach((allcards) => {
-    allcards.style.display = "none";
-  });
-  const cardToShow = document.getElementById(id);
-  cardToShow.style.display = "block";
-
-  const navBar = document.querySelector(".head1");
-  navBar.style.display = "none";
-
-  const backButton = document.querySelector(".back");
-  backButton.style.display = "block";
-}
-
-function openFirstPage() {
-  const cards = document.querySelectorAll(".card");
-  const cardHeading = document.querySelector(".cardHeading");
-  cardHeading.innerHTML = "";
-  cards.forEach((allcards) => {
-    allcards.style.display = "block";
-  });
-  const navBar = document.querySelector(".head1");
-  navBar.style.display = "block";
-
-  const backButton = document.querySelector(".back");
-  backButton.style.display = "none";
+  .cardHeading {
+    right: 0px;
+    top: 133px;
+    position: absolute;
+    color: white;
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+  }
 }
